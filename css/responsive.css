@@ -1,0 +1,3 @@
+/* Media queries y movimiento reducido */
+@media(max-width:560px){.rw{grid-template-columns:100px 1fr 44px}.qt{font-size:18px}}
+@media(prefers-reduced-motion:no-preference){.opt,.chip,.b{transition:background .15s,border-color .15s}}

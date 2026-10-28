@@ -1,0 +1,3 @@
+/* Pistas genéricas por tipo de pregunta */
+const GENC=['Busca el diagnóstico en el Índice alfabético de eCIE-Maps y confírmalo en la Lista tabular.','Lee las notas («Codifique primero», «Use código adicional») para decidir qué va como principal y qué como secundario.'],GEN=['Descarta primero las opciones con palabras absolutas («solo», «siempre», «nunca»).','Regla de oro: si no está escrito en la historia clínica, no existe para la codificación.'];
+const GENM=['Marca todas las opciones que correspondan: cada opción incorrecta que marques resta puntos.','Regla de oro: si no está escrito en la historia clínica, no existe para la codificación.'];

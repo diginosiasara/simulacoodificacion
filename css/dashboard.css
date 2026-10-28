@@ -1,0 +1,5 @@
+/* Panel de progreso: estadísticas, tablas, gráficos */
+.st{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.st div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.st b{display:block;font:700 24px Georgia,serif}.st span{font-size:13px;color:var(--mute)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}.tb{width:100%;border-collapse:collapse;font-size:14px}.tb th,.tb td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}.tb th{color:var(--mute);font-weight:600;white-space:nowrap}
+.up{color:var(--ok);font-weight:700}.dn{color:var(--bad);font-weight:700}.eq{color:var(--mute)}
+.ch{width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}.ch text{fill:var(--mute);font-size:11px}.gl{stroke:var(--line)}.pl{fill:none;stroke:var(--acc);stroke-width:2.5}.pt{fill:var(--acc)}
