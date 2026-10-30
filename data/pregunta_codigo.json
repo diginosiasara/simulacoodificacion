@@ -142,7 +142,6 @@
 {"pregunta_id": 271, "codigo": "N18.32", "rol": "ds"},
 {"pregunta_id": 272, "codigo": "E03.1", "rol": "dp"},
 {"pregunta_id": 273, "codigo": "G30.1", "rol": "dp"},
-{"pregunta_id": 273, "codigo": "F02.80", "rol": "ds"},
 {"pregunta_id": 274, "codigo": "N30.01", "rol": "dp"},
 {"pregunta_id": 275, "codigo": "N30.00", "rol": "dp"},
 {"pregunta_id": 275, "codigo": "B96.20", "rol": "ds"},
@@ -152,5 +151,13 @@
 {"pregunta_id": 276, "codigo": "N18.6", "rol": "ds"},
 {"pregunta_id": 276, "codigo": "Z99.2", "rol": "ds"},
 {"pregunta_id": 277, "codigo": "N45.1", "rol": "dp"},
-{"pregunta_id": 278, "codigo": "N60.11", "rol": "dp"}
+{"pregunta_id": 278, "codigo": "N60.11", "rol": "dp"},
+{"pregunta_id": 282, "codigo": "E03.1", "rol": "dp"},
+{"pregunta_id": 282, "codigo": "Z79", "rol": "ds"},
+{"pregunta_id": 284, "codigo": "E85.9", "rol": "dp"},
+{"pregunta_id": 284, "codigo": "N08", "rol": "ds"},
+{"pregunta_id": 285, "codigo": "E10.44", "rol": "dp"},
+{"pregunta_id": 286, "codigo": "E11.610", "rol": "dp"},
+{"pregunta_id": 286, "codigo": "E11.36", "rol": "ds"},
+{"pregunta_id": 286, "codigo": "Z79.4", "rol": "ds"}
 ]

@@ -1,13 +1,13 @@
 /* Vista: configuración del simulacro */
 function cfgView(){const h=DB.rec,cand=Q.filter(inc),av=cfg.fallas?FL().length:cand.length,n=cfg.n?Math.min(cfg.n,av):av,bs=Q.filter(q=>cfg.temas.has(q.tema)),cn=t=>bs.filter(q=>q.t===t).length;
 const seg=(a,cur,items)=>`<div class="seg">${items.map(([v,t])=>`<button class="${cur===v?'on':''}" data-a="${a}" data-v="${v}">${t}</button>`).join('')}</div>`,
- TH={mc:[200,'◉'],multi:[265,'☑'],vf:[330,'V/F'],code:[140,'J45']},
+ TH={mc:[200,'◉'],multi:[265,'☑'],vf:[330,'V/F'],code:[140,'J45'],match:[25,'⇄']},
  tile=(t,d,n)=>`<button class="tile${cfg.tipos.has(t)?' on':''}${n?'':' z'}" style="--h:${TH[t][0]}" data-a="tipo" data-v="${t}" aria-pressed="${cfg.tipos.has(t)}"><span class="ic">${TH[t][1]}</span><span class="tt"><b>${TIPOS[t]}</b><small>${d}</small></span><span class="cn">${n}</span></button>`;
 A.innerHTML=`<div class="card cfgc"><section class="cs"><h4><b>1</b>Contenido</h4><div class="row">${chip(cfg.fallas,'pre','fail','Más falladas ('+FL().length+')')}${chip(0,'pre','all','Todo')}${Object.keys(SRC).map(k=>chip(0,'pre',k,'Solo '+SRC[k],'cc s-'+k)).join('')}</div>
 ${Object.keys(SRC).map(k=>`<div class="sg s-${k}"><span class="sbn">${SRC[k]}</span><div class="row">${TEMAS.filter(t=>TS[t]===k).map(t=>chip(cfg.temas.has(t),'tema',esc(t),t,'cc tm',TCS[t])).join('')}</div></div>`).join('')}</section>
 <section class="cs"><h4><b>2</b>Tipo de pregunta<small>marca uno o varios</small></h4>
 <div class="gh">Teóricas</div><div class="tiles">${tile('mc','Test con una sola respuesta válida',cn('mc'))}${tile('multi','Marca todas las correctas',cn('multi'))}${tile('vf','Decide si la afirmación es cierta',cn('vf'))}</div>
-<div class="gh">Prácticas</div><div class="tiles">${tile('code','Escribe el código en los campos DP y DS',cn('code'))}</div></section>
+<div class="gh">Prácticas</div><div class="tiles">${tile('code','Escribe el código en los campos DP y DS',cn('code'))}${tile('match','Une términos y descripciones',cn('match'))}</div></section>
 <section class="cs"><h4><b>3</b>Preguntas y nivel</h4><div class="lbl">Número de preguntas</div>${seg('n',cfg.n,[10,15,20,40,60,0].map(x=>[x,x||'Todas']))}
 ${cfg.n&&!cfg.fallas?`<div class="lbl">Dificultad</div>${seg('nivel',cfg.nivel,[['mix','Mixto'],...NV.map((x,i)=>[i+1,x+' <small>'+cand.filter(q=>lvl(q)===i+1).length+'</small>'])])}<p class="note">Cada pregunta parte de su dificultad base y se ajusta con tu historial: los fallos la hacen más difícil y los aciertos más fácil.</p>`:''}</section>
 <section class="cs"><h4><b>4</b>Modo</h4>${seg('mode',cfg.mode,[['examen','Examen con cronómetro'],['practica','Práctica sin cronómetro']])}

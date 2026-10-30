@@ -29,5 +29,9 @@
 {"id": 28, "fuente_id": "S4", "nombre": "S4 · Salud mental y sustancias"},
 {"id": 29, "fuente_id": "S4", "nombre": "S4 · Renal y urinario"},
 {"id": 30, "fuente_id": "S4", "nombre": "S4 · Genitales y mama"},
-{"id": 31, "fuente_id": "S4", "nombre": "S4 · Método y secuenciación"}
+{"id": 31, "fuente_id": "S4", "nombre": "S4 · Método y secuenciación"},
+{"id": 32, "fuente_id": "U1", "nombre": "Relacionar · UF1 Introducción"},
+{"id": 33, "fuente_id": "U2", "nombre": "Relacionar · UF2 Infecciosas"},
+{"id": 34, "fuente_id": "U3", "nombre": "Relacionar · UF3 Neoplasias"},
+{"id": 35, "fuente_id": "S4", "nombre": "Relacionar · UF4 Otras patologías"}
 ]

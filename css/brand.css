@@ -1,0 +1,18 @@
+/* Marca CodiSalud: cabecera, intro en vídeo, pie y aviso legal */
+header{align-items:center}.brand{display:flex;align-items:center;gap:12px;flex:1;min-width:240px}
+.logo{width:64px;height:64px;border-radius:16px;background:#fff;border:1px solid var(--line);padding:3px;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+header h1{font:800 30px/1.05 Georgia,"Times New Roman",serif;letter-spacing:.2px;min-width:0;flex:none;color:var(--acc)}
+.lema{margin:3px 0 0!important;font:700 12px/1.2 system-ui,sans-serif;letter-spacing:.22em;color:var(--mute)!important}
+header .sub{flex-basis:100%;order:3;margin:2px 0 0}
+#intro{position:fixed;inset:0;z-index:100;background:#05080c;display:flex;align-items:center;justify-content:center;transition:opacity .4s}
+#intro video{width:100%;height:100%;object-fit:contain;background:#05080c}
+#intro>button{position:absolute;right:16px;bottom:max(16px,env(safe-area-inset-bottom));background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(6px)}
+#intro.out{opacity:0;pointer-events:none}#intro[hidden]{display:none}
+@media(max-aspect-ratio:1/1){#intro video{object-fit:cover}}
+.foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.fl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.foot nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px}.foot a{color:var(--acc);text-decoration:none}.foot a:hover{text-decoration:underline}
+#legal{width:min(720px,94vw);max-height:88vh;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);padding:0}
+#legal::backdrop{background:rgba(5,8,12,.6)}#legal .lg{padding:20px 22px 22px;overflow:auto;max-height:88vh}
+#legal h2{margin:0 0 4px;font:800 22px/1.2 Georgia,serif}#legal h3{margin:18px 0 4px;font-size:15px;color:var(--acc)}#legal p,#legal li{font-size:14px;line-height:1.55;margin:5px 0}
+#legal table{border-collapse:collapse;width:100%;font-size:14px}#legal td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}#legal td:first-child{color:var(--mute);white-space:nowrap}
+#legal .x{position:sticky;top:0;float:right;margin:-6px -8px 0 8px}
