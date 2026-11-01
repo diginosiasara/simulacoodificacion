@@ -1,5 +1,5 @@
 /* Arranque, eventos y cambio de tema */
-function show(){tab==='me'?meView():tab==='cmp'?cmpView():tab==='adm'?admView():tab==='dash'?dashView():tab==='bank'?bankView():S?(S.phase==='run'?runView():resView()):cfgView()}
+function show(){if(ME&&ME.rol==='profesor'&&!['cmp','me','pp'].includes(tab))tab='pp';document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x.dataset.tab===tab));document.querySelectorAll('#panels iframe').forEach(f=>f.hidden=true);PANEL[tab]?panelView(tab):tab==='me'?meView():tab==='cmp'?cmpView():tab==='adm'?admView():tab==='dash'?dashView():tab==='bank'?bankView():S?(S.phase==='run'?runView():resView()):cfgView()}
 A.addEventListener('input',e=>{const k=e.target.dataset.k;if(k==null||!S||S.phase!=='run')return;const q=S.qs[S.i],a=q.a;k==='dp'?a.dp=e.target.value:a.ds[+k]=e.target.value;const c=A.querySelector('[data-a=check]');if(c)c.disabled=!!q.lock||!done(q)});
 A.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const d=b.dataset,a=d.a,v=d.v,q=S&&S.qs[S.i];
  if(a==='pre'){cfg.fallas=v==='fail';cfg.temas=new Set(TEMAS.filter(t=>v==='all'||v==='fail'||TS[t]===v))}
@@ -22,5 +22,6 @@ A.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return
  else if(a==='end'){const u=S.qs.filter(x=>!done(x)).length;if(confirm(u?`Quedan ${u} sin responder. ¿Finalizar?`:'¿Finalizar el simulacro?'))return finish()}
  show()});
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));show()});
-$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
+const setTema=t=>{document.documentElement.dataset.theme=t;if(CUR)store.set(ukey(CUR)+'tema',t)};
+$('#th').onclick=()=>setTema(document.documentElement.dataset.theme==='dark'?'light':'dark');
 boot();

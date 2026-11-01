@@ -1,18 +1,18 @@
 /* Cuentas locales: usuarios, sesión, contraseñas (PBKDF2-SHA256), recuperación y progreso compartido.
    Sin servidor: los datos viven en este navegador (ver README). Las contraseñas nunca se guardan en claro. */
 let ME=null;
-const ROL={root:'Super usuario',profesor:'Profesor',usuario:'Alumno',invitado:'Invitado'};
+const ROL={root:'Super usuario',profesor:'Profesor',analitica:'Analítica',usuario:'Alumno',invitado:'Invitado'};
 const AU=(()=>{
  const enc=new TextEncoder(),b64=u=>btoa(String.fromCharCode(...u)),unb=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),rnd=n=>crypto.getRandomValues(new Uint8Array(n)),hex=u=>[...u].map(x=>x.toString(16).padStart(2,'0')).join('');
  const kdf=async(s,salt,it)=>{const k=await crypto.subtle.importKey('raw',enc.encode(s),'PBKDF2',false,['deriveBits']);return b64(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:unb(salt),iterations:it},k,256)))};
  const sha=async s=>hex(new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(s)))),mkPw=(p,s)=>kdf(p,s,150000),mkEm=(e,s)=>kdf(String(e).trim().toLowerCase(),s,50000),newSalt=()=>b64(rnd(16));
- const loc=()=>store.get('cs_users',[]),all=()=>{const l=loc(),ids=new Set(l.map(u=>u.id));return[...(window.USUARIOS_SEED||[]).filter(u=>!ids.has(u.id)),...l]},get=id=>all().find(u=>u.id===String(id).trim().toLowerCase());
+ const loc=()=>store.get('cs_users',[]),all=()=>{const l=loc(),ids=new Set(l.map(u=>u.id));return[...(window.USUARIOS_SEED||[]).filter(u=>!ids.has(u.id)),...l]},get=id=>{const n=String(id).trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');return all().find(u=>u.id===n)};
  const put=u=>store.set('cs_users',[...loc().filter(x=>x.id!==u.id),u]),patch=(id,p)=>put({...get(id),...p});
  const seq=p=>{const l=p.toLowerCase();for(let i=0;i<l.length-2;i++){if(!/^[a-z0-9]{3}$/.test(l.slice(i,i+3)))continue;const a=l.charCodeAt(i),b=l.charCodeAt(i+1),c=l.charCodeAt(i+2);if((b-a===1&&c-b===1)||(a-b===1&&b-c===1)||(a===b&&b===c))return true}return false};
  const pwErr=p=>p.length<8?'Mínimo 8 caracteres.':!/[a-z]/.test(p)||!/[A-Z]/.test(p)||!/\d/.test(p)?'Debe mezclar mayúsculas, minúsculas y números.':seq(p)?'No uses caracteres seguidos (abc, 123, aaa).':'';
  const tmpPw=()=>{const C='ABCDEFGHJKMNPQRSTUVWXYZ',c='abcdefghjkmnpqrstuvwxyz',d='23456789';for(;;){const p=[...rnd(10)].map((x,i)=>(i%3===0?C:i%3===1?c:d)[x%(i%3===0?C.length:i%3===1?c.length:d.length)]).join('');if(!pwErr(p))return p}};
  const sess=()=>{try{return JSON.parse(sessionStorage.getItem('cs_sess'))}catch(e){return null}},setSess=o=>sessionStorage.setItem('cs_sess',JSON.stringify(o)),endSess=()=>sessionStorage.removeItem('cs_sess');
- const mask=e=>{const[a,b]=String(e).split('@');return(a[0]||'')+'***@'+(b||'')};
+ const mask=e=>{const[a,b]=String(e).split('@');return(a[0]||'')+'***@'+(b?b[0]+'***':'')};
  async function verify(u,pw){return !!u&&await mkPw(pw,u.salt)===u.h}
  async function login(id,pw){const k=store.get('cs_lock',{n:0,t:0});if(k.t>Date.now())return{err:`Demasiados intentos. Espera ${Math.ceil((k.t-Date.now())/1000)} s.`};const u=get(id);if(!(u&&!u.disabled&&await verify(u,pw))){k.n++;if(k.n>=5){k.t=Date.now()+60000;k.n=0}store.set('cs_lock',k);return{err:'Usuario o contraseña incorrectos.'}}store.set('cs_lock',{n:0,t:0});return{u}}
  async function setPw(id,pw){const salt=newSalt();patch(id,{salt,h:await mkPw(pw,salt),mustChange:false})}

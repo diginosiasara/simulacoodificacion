@@ -16,3 +16,9 @@
 .me-row{background:var(--soft)}.bar{display:inline-block;width:70px;height:8px;background:var(--line);border-radius:6px;vertical-align:middle;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc)}
 details{border-bottom:1px solid var(--line);padding:6px 0}summary{cursor:pointer;font-weight:600}.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.bad{color:var(--bad)!important}
 .tmp{font:700 15px ui-monospace,Menlo,monospace;background:var(--soft);padding:2px 8px;border-radius:6px;user-select:all}.ac{display:flex;gap:6px}
+
+#panels{margin-top:4px}.pframe{width:100%;height:calc(100vh - 230px);min-height:560px;border:1px solid var(--line);border-radius:14px;background:#fff}.pframe[hidden]{display:none}
+.card.slim{padding:10px 14px;margin-bottom:8px}.card.slim .note{margin:2px 0}.card.slim .row{margin-top:6px}
+
+/* Profesor: solo el panel de seguimiento (sin subtítulo, pestañas ni barra de ajustes) */
+.prof header .sub{display:none!important}.prof #pmsg:empty{display:none}.prof .tabs{margin-bottom:10px}.prof .pframe{height:calc(100vh - 215px);min-height:520px}
