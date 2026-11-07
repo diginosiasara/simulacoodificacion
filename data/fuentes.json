@@ -4,5 +4,6 @@
 {"id": "S4", "tipo": "sesion", "titulo": "Sesión 4", "orden": 3, "hue": 80},
 {"id": "U1", "tipo": "unidad", "titulo": "Unidad 1", "orden": 4, "hue": 222},
 {"id": "U2", "tipo": "unidad", "titulo": "Unidad 2", "orden": 5, "hue": 30},
-{"id": "U3", "tipo": "unidad", "titulo": "Unidad 3", "orden": 6, "hue": 345}
+{"id": "U3", "tipo": "unidad", "titulo": "Unidad 3", "orden": 6, "hue": 345},
+{"id": "BC", "tipo": "banco", "titulo": "Banco de Preguntas de conceptos", "orden": 7, "hue": 120}
 ]

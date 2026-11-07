@@ -39,13 +39,20 @@ Selección única, múltiple, verdadero/falso, codificación (DP/DS/morfología)
 (pulsa un término y su pareja; puntuación parcial; cada enlace erróneo resta ⅓ del valor de un par).
 
 ## Contenido actual
-308 preguntas (Sesiones 1, 3 y 4; Unidades 1-3), 21 de ellas de relacionar. Cada una cita el manual
+492 preguntas: 308 de Sesiones 1, 3 y 4 y Unidades 1-3 (21 de relacionar) más 184 del **Banco de Preguntas de conceptos**. Cada una cita el manual
 (UF1-UF4) con apartado y página, además de su apunte de origen. Las referencias se localizaron por
 similitud de texto con el PDF: conviene revisarlas.
 
 ## Marca, licencia y datos legales
 Se editan en `js/config/legal.js` (los campos vacíos no se muestran). Pendientes de completar antes de
 publicar: correo de contacto, domicilio y NIF/CIF del titular. `LICENSE`: todos los derechos reservados.
+
+## Banco de Preguntas de conceptos
+Nuevo tipo de fuente (`fuentes.tipo = 'banco'`, id `BC`) con 184 preguntas de selección única (`mc`) y 16 temas «Conceptos · …», agrupadas por contenido (no por sesión).
+Niveles Fácil/Medio/Difícil/Supremo = `dificultad` 1-4. Cada pregunta lleva 3 pistas, explicación y 1-3 referencias al manual (UF, apartado y página).
+Las referencias marcadas «(aproximada)» (unas 50, sobre todo convenciones y herramientas) se localizaron por similitud de texto y no aparecen literalmente en el PDF: conviene revisarlas.
+Para añadir más: nuevo tema con `fuente_id: "BC"` y preguntas con ese `tema_id`; no hay que tocar JavaScript. El color de la fuente está en `css/temas.css` (`.s-BC`).
+Si dos preguntas comparten enunciado, `catalog.js` distingue su clave de progreso añadiendo las opciones, sin alterar las claves existentes.
 
 ## Criterio del profesor (clase del 27-oct-2026)
 No hace falta memorizar códigos: en el examen se evalúa terminología y método de búsqueda.

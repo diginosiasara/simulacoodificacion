@@ -2,7 +2,7 @@
 
 | Propuesta del informe | En CodiSalud | Estado |
 |---|---|---|
-| `modules` | `manuales` (UF1-UF4) y `fuentes` (Sesión 1/3/4, Unidades 1-3) | hecho |
+| `modules` | `manuales` (UF1-UF4) y `fuentes` (Sesión 1/3/4, Unidades 1-3 y **Banco de Preguntas de conceptos**, tipo `banco`) | hecho |
 | `topics` | `temas` | hecho |
 | `exercises` (polimórfico) | `preguntas` + `tipo` (mc, multi, vf, code, **match**) | hecho |
 | `hints` JSONB | `preguntas.pistas` (siempre 3) | hecho |

@@ -3,7 +3,7 @@
 CREATE TYPE rol_usuario AS ENUM ('root','profesor','usuario','invitado');
 CREATE TYPE tipo_pregunta AS ENUM ('mc','multi','vf','code','match');
 CREATE TABLE manuales   (id text PRIMARY KEY, titulo text NOT NULL, archivo text, paginas int);
-CREATE TABLE fuentes    (id text PRIMARY KEY, tipo text CHECK (tipo IN ('sesion','unidad')), titulo text NOT NULL, orden int, hue int);
+CREATE TABLE fuentes    (id text PRIMARY KEY, tipo text CHECK (tipo IN ('sesion','unidad','banco')), titulo text NOT NULL, orden int, hue int);
 CREATE TABLE temas      (id serial PRIMARY KEY, fuente_id text REFERENCES fuentes, nombre text UNIQUE NOT NULL);
 CREATE TABLE preguntas  (id int PRIMARY KEY, tema_id int REFERENCES temas, tipo tipo_pregunta NOT NULL, dificultad smallint CHECK (dificultad BETWEEN 1 AND 4),
   enunciado text NOT NULL, explicacion text, referencia text, pistas jsonb NOT NULL DEFAULT '[]' CHECK (jsonb_array_length(pistas)=3),

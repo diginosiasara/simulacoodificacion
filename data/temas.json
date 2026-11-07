@@ -33,5 +33,21 @@
 {"id": 32, "fuente_id": "U1", "nombre": "Relacionar · UF1 Introducción"},
 {"id": 33, "fuente_id": "U2", "nombre": "Relacionar · UF2 Infecciosas"},
 {"id": 34, "fuente_id": "U3", "nombre": "Relacionar · UF3 Neoplasias"},
-{"id": 35, "fuente_id": "S4", "nombre": "Relacionar · UF4 Otras patologías"}
+{"id": 35, "fuente_id": "S4", "nombre": "Relacionar · UF4 Otras patologías"},
+{"id": 36, "fuente_id": "BC", "nombre": "Conceptos · Principios de codificación y diagnóstico principal"},
+{"id": 37, "fuente_id": "BC", "nombre": "Conceptos · Estructura jerárquica de los códigos"},
+{"id": 38, "fuente_id": "BC", "nombre": "Conceptos · Convenciones, índice alfabético y herramientas de búsqueda"},
+{"id": 39, "fuente_id": "BC", "nombre": "Conceptos · Marco normativo, utilidades y calidad de los datos"},
+{"id": 40, "fuente_id": "BC", "nombre": "Conceptos · Sepsis, bacteriemia y SIRS"},
+{"id": 41, "fuente_id": "BC", "nombre": "Conceptos · Tuberculosis"},
+{"id": 42, "fuente_id": "BC", "nombre": "Conceptos · VIH"},
+{"id": 43, "fuente_id": "BC", "nombre": "Conceptos · Otras infecciones y situaciones especiales"},
+{"id": 44, "fuente_id": "BC", "nombre": "Conceptos · Definiciones y clasificación de neoplasias"},
+{"id": 45, "fuente_id": "BC", "nombre": "Conceptos · Morfología, comportamiento e inmunofenotipo"},
+{"id": 46, "fuente_id": "BC", "nombre": "Conceptos · Neoplasias primarias, secundarias y localización"},
+{"id": 47, "fuente_id": "BC", "nombre": "Conceptos · Reglas de ingreso y complicaciones de la neoplasia"},
+{"id": 48, "fuente_id": "BC", "nombre": "Conceptos · Diabetes mellitus"},
+{"id": 49, "fuente_id": "BC", "nombre": "Conceptos · Enfermedades de la tiroides"},
+{"id": 50, "fuente_id": "BC", "nombre": "Conceptos · Trastornos mentales y por consumo de sustancias"},
+{"id": 51, "fuente_id": "BC", "nombre": "Conceptos · Aparato genitourinario y mama"}
 ]
