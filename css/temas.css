@@ -1,5 +1,5 @@
 /* Colores por fuente y tema (S1, U1…) */
-.s-S1{--h:168}.s-U1{--h:222}.s-U2{--h:30}.s-U3{--h:345}.s-S3{--h:285}.s-S4{--h:80}.s-BC{--h:120}
+.s-S1{--h:168}.s-U1{--h:222}.s-U2{--h:30}.s-U3{--h:345}.s-S3{--h:285}.s-S4{--h:80}.s-BC{--h:125}
 :is(.s-S1,.s-U1,.s-U2,.s-U3,.s-S3,.s-S4,.s-BC,.tm,.tile){--c:hsl(var(--h) 38% var(--l,34%))}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) :is(.s-S1,.s-U1,.s-U2,.s-U3,.s-S3,.s-S4,.s-BC,.tm,.tile){--c:hsl(var(--h) 42% var(--ld,74%))}}
 :root[data-theme=dark] :is(.s-S1,.s-U1,.s-U2,.s-U3,.s-S3,.s-S4,.s-BC,.tm,.tile){--c:hsl(var(--h) 42% var(--ld,74%))}

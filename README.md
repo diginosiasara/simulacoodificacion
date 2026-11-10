@@ -39,20 +39,18 @@ Selección única, múltiple, verdadero/falso, codificación (DP/DS/morfología)
 (pulsa un término y su pareja; puntuación parcial; cada enlace erróneo resta ⅓ del valor de un par).
 
 ## Contenido actual
-492 preguntas: 308 de Sesiones 1, 3 y 4 y Unidades 1-3 (21 de relacionar) más 184 del **Banco de Preguntas de conceptos**. Cada una cita el manual
-(UF1-UF4) con apartado y página, además de su apunte de origen. Las referencias se localizaron por
-similitud de texto con el PDF: conviene revisarlas.
+499 preguntas en siete clasificaciones: Sesiones 1, 3 y 4, Unidades 1-3 y el nuevo **Banco de preguntas de Conceptos** (191 preguntas tipo test
+organizadas por sesión, tema y nivel: 187 del banco reorganizado + 4 con «Dónde consultarlo»). Cada pregunta lleva 3 pistas y cita el manual (UF1-UF4)
+con apartado y página. Las referencias se localizaron por similitud de texto con el PDF: conviene revisarlas.
+
+## Cómo añadir preguntas nuevas
+Cada pregunta necesita: enunciado, 4 opciones, opción correcta, 3 pistas, nivel (Fácil, Medio, Difícil o Supremo), explicación y dónde consultarla
+(manual y apartado). Se pueden entregar en un documento con ese formato; se incorporan a `data/banco.js` como una clasificación nueva
+(`fuentes`) con sus temas, y su color se define en `css/temas.css` (`.s-<id>{--h:<tono>}`).
 
 ## Marca, licencia y datos legales
 Se editan en `js/config/legal.js` (los campos vacíos no se muestran). Pendientes de completar antes de
 publicar: correo de contacto, domicilio y NIF/CIF del titular. `LICENSE`: todos los derechos reservados.
-
-## Banco de Preguntas de conceptos
-Nuevo tipo de fuente (`fuentes.tipo = 'banco'`, id `BC`) con 184 preguntas de selección única (`mc`) y 16 temas «Conceptos · …», agrupadas por contenido (no por sesión).
-Niveles Fácil/Medio/Difícil/Supremo = `dificultad` 1-4. Cada pregunta lleva 3 pistas, explicación y 1-3 referencias al manual (UF, apartado y página).
-Las referencias marcadas «(aproximada)» (unas 50, sobre todo convenciones y herramientas) se localizaron por similitud de texto y no aparecen literalmente en el PDF: conviene revisarlas.
-Para añadir más: nuevo tema con `fuente_id: "BC"` y preguntas con ese `tema_id`; no hay que tocar JavaScript. El color de la fuente está en `css/temas.css` (`.s-BC`).
-Si dos preguntas comparten enunciado, `catalog.js` distingue su clave de progreso añadiendo las opciones, sin alterar las claves existentes.
 
 ## Criterio del profesor (clase del 27-oct-2026)
 No hace falta memorizar códigos: en el examen se evalúa terminología y método de búsqueda.
@@ -71,6 +69,17 @@ Foto: se recorta y reduce sola a 100-300 px (WebP/JPEG), sin límite al subirla.
 Gestor Maestro (Super usuario), Panel del profesor (Profesor) y Panel de datos y tiempo (Analítica). Conservan su estado al cambiar de pestaña.
 El **Profesor tiene solo tres pestañas** (Comparar, Mi cuenta y Panel profesor) y entra en el panel de seguimiento, sin subtítulo ni barra de ajustes: arranca vacío, sin alumnos de ejemplo, y al entrar se cargan solos los alumnos activos (cuentas no desactivadas con rol Alumno o Invitado, más los progresos importados). Para incorporar a alguien de otro dispositivo, usa «Importar alumnos» del propio panel con el archivo de progreso compartido que exporta cada persona desde Mi cuenta. Para refrescar los datos basta con recargar la página. El Gestor tiene «Cargar el banco / las cuentas».
 Los paneles trabajan en memoria: lo que se edite en el Gestor no se guarda en la app; el de Analítica usa datos simulados.
+
+## Panel de conocimiento
+Pestaña «Conocimiento» (todos los roles salvo Profesor): 339 fichas consultables y 197 entradas de índice, con búsqueda sin tildes y resaltado,
+filtros por fuente (manuales UF1-UF8, apuntes de clase, guía básica) y tipo (qué se pide en el examen, guía, glosario, claves, apuntes, enlaces, índices).
+Cada ficha cita su manual y página; las de UF1-UF4 tienen botón «Practicar» que abre el simulacro con los temas correspondientes.
+Los datos están en `data/conocimiento.js` (se cargan al abrir la pestaña) y `data/conocimiento.json`.
+
+## Móvil y accesibilidad
+Pestañas en una sola fila desplazable y fija arriba, con indicación de que hay más a los lados; cabecera compacta; objetivos táctiles de 44 px; campos a 16 px (sin zoom en iOS).
+Pestañas ARIA (flechas, Inicio y Fin), enlace «Saltar al contenido», avisos de cambio de sección para lectores de pantalla, foco gestionado en diálogos, campos con etiqueta y
+contraste mínimo 5,25:1. Comprobado en Chromium a 375 y 320 px.
 
 ## Documentación
 `docs/modelo-conocimiento.md`, `docs/PUBLICAR.md`, `db/schema.sql`, `tools/hash-user.js`.

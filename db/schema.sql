@@ -14,8 +14,8 @@ CREATE TABLE soluciones_codigo (pregunta_id int PRIMARY KEY REFERENCES preguntas
 CREATE TABLE pregunta_codigo   (pregunta_id int REFERENCES preguntas ON DELETE CASCADE, codigo text, rol text CHECK (rol IN ('dp','ds','morfologia')), PRIMARY KEY (pregunta_id,codigo,rol));
 CREATE TABLE referencias (pregunta_id int REFERENCES preguntas ON DELETE CASCADE, orden int, manual_id text REFERENCES manuales, seccion text, pagina int NOT NULL, pagina_fin int, PRIMARY KEY (pregunta_id,orden));
 -- Conocimiento (propuesta «Banco de Conocimiento»): teoría, glosario y enlaces vinculados a temas/manuales.
-CREATE TABLE conocimiento (id serial PRIMARY KEY, tema_id int REFERENCES temas, tipo text CHECK (tipo IN ('teoria','glosario','enlace')), titulo text NOT NULL, contenido text, url text, manual_id text REFERENCES manuales, pagina int,
-  tsv tsvector GENERATED ALWAYS AS (to_tsvector('spanish', coalesce(titulo,'')||' '||coalesce(contenido,''))) STORED);
+CREATE TABLE conocimiento (id int PRIMARY KEY, tipo text CHECK (tipo IN ('examen','guia','apunte','glosario','vocabulario','clave','importante','curiosidad','enlace','indice')), titulo text NOT NULL, texto text, seccion text, manual_id text, uf text, pagina int, url text,
+  tsv tsvector GENERATED ALWAYS AS (to_tsvector('spanish', coalesce(titulo,'')||' '||coalesce(texto,''))) STORED);
 CREATE INDEX ON conocimiento USING gin(tsv);
 -- Personas
 CREATE TABLE usuarios (id text PRIMARY KEY, nombre text NOT NULL, rol rol_usuario NOT NULL DEFAULT 'usuario', email_hash text, avatar text, comparte boolean NOT NULL DEFAULT false,

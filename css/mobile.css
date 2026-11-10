@@ -1,0 +1,38 @@
+/* Navegación móvil y accesibilidad. Se carga la última para poder ajustar el resto. */
+.skip{position:absolute;left:8px;top:-64px;z-index:200;background:var(--acc);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}.skip:focus{top:8px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0}
+#app:focus{outline:none}
+/* Pestañas: una sola fila que se desplaza, fija arriba, con indicación de que hay más a los lados */
+.tabs{display:flex;flex-wrap:nowrap;gap:2px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+ position:sticky;top:0;z-index:30;background:var(--bg);margin:0 -16px 16px;padding:0 16px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;white-space:nowrap;min-height:48px;scroll-snap-align:center;border-radius:8px 8px 0 0}
+.tabs button:focus-visible{outline:3px solid var(--acc);outline-offset:-3px}
+.tabs.has-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent)}
+.tabs.has-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 34px);mask-image:linear-gradient(90deg,transparent,#000 34px)}
+.tabs.has-l.has-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 34px,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,transparent,#000 34px,#000 calc(100% - 34px),transparent)}
+.foot nav a{display:inline-block;padding:6px 0}
+@media(pointer:coarse){.b,button.s,select,.in,.fl input,.fl select,.fl textarea,.chip{min-height:44px}.foot nav a{padding:10px 0}}
+@media(max-width:640px){
+ .w{padding:12px 12px 64px}
+ header{gap:8px 10px;margin-bottom:10px;align-items:center}
+ header .brand{flex:1 1 100%;min-width:0;gap:10px}
+ header .logo{width:48px;height:48px;border-radius:12px}
+ header h1{font-size:24px;min-width:0}.lema{font-size:10px;letter-spacing:.16em}
+ header .sub{display:none}
+ #uchip{flex:1 1 0;min-width:0;order:2}#uchip span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ #th{order:3;margin-left:auto}
+ .tabs{margin-inline:-12px;padding-inline:12px;margin-bottom:12px}
+ .tabs button{padding:8px 14px;font-size:15px}
+ .card{padding:14px}
+ .foot nav{flex-direction:column;gap:0}
+ .pframe{height:calc(100vh - 210px)}.prof .pframe{height:calc(100vh - 200px)}
+ .me{gap:10px}.row{gap:8px}
+}
+@media(max-width:380px){header h1{font-size:22px}.tabs button{padding:8px 12px}}
+/* Formularios: ancho completo y etiquetas alineadas; 16 px evita el zoom automático de iOS al enfocar */
+.gc .fl{text-align:left}.gc input:not([type=checkbox]),.gc select,.gc textarea,.in{width:100%;box-sizing:border-box}
+@media(max-width:640px){input,select,textarea{font-size:16px}}
+/* Etiquetas alineadas a la izquierda y campos a todo el ancho en cualquier formulario */
+.fl{text-align:left}.fl input:not([type=checkbox]),.fl select,.fl textarea{width:100%;box-sizing:border-box}
+#app h2{font:700 24px/1.2 Georgia,"Times New Roman",serif;margin:0 0 6px}
