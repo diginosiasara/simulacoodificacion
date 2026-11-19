@@ -9,6 +9,7 @@ const Q=(()=>{
   const rf=p=>[(refs[p.id]||[]).sort((a,b)=>a.orden-b.orden).map(r=>`📖 Manual ${r.manual_id} · ${r.seccion} · ${r.pagina_fin?'págs. '+r.pagina+'-'+r.pagina_fin:'pág. '+r.pagina}`).join(' | '),p.referencia].filter(Boolean).join(' — ');
   return B.preguntas.filter(p=>p.estado==='publicada').map(p=>{
     const t=tema[p.tema_id],base={src:t.fuente_id,tema:t.nombre,t:p.tipo,d:p.dificultad,exp:p.explicacion,ref:rf(p),id:p.id};
+    if(p.especial)base.esp={n:p.num_origen,o:p.origen,niv:p.nivel_docente,co:p.coincidencia,ct:p.coincidencia_texto,g:p.resp_grupo1,x:p.resp_original,c:p.comprobacion,d:p.donde,ns:p.nota_sesion,rf:p.referencia};
     if(p.pistas&&p.pistas.length)base.h=p.pistas;
     if(p.tipo==='match'){const ps=(par[p.id]||[]).sort((a,b)=>a.orden-b.orden),L=ps.filter(x=>x.izquierda!=null);
       return{...base,q:p.enunciado,o:[],L:L.map(x=>x.izquierda),Rt:L.map(x=>x.derecha),X:ps.filter(x=>x.izquierda==null).map(x=>x.derecha)}}

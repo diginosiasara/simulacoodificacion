@@ -3,11 +3,14 @@
 CREATE TYPE rol_usuario AS ENUM ('root','profesor','usuario','invitado');
 CREATE TYPE tipo_pregunta AS ENUM ('mc','multi','vf','code','match');
 CREATE TABLE manuales   (id text PRIMARY KEY, titulo text NOT NULL, archivo text, paginas int);
-CREATE TABLE fuentes    (id text PRIMARY KEY, tipo text CHECK (tipo IN ('sesion','unidad','banco')), titulo text NOT NULL, orden int, hue int);
+CREATE TABLE fuentes    (id text PRIMARY KEY, tipo text CHECK (tipo IN ('sesion','unidad','banco','especial')), titulo text NOT NULL, orden int, hue int);
 CREATE TABLE temas      (id serial PRIMARY KEY, fuente_id text REFERENCES fuentes, nombre text UNIQUE NOT NULL);
 CREATE TABLE preguntas  (id int PRIMARY KEY, tema_id int REFERENCES temas, tipo tipo_pregunta NOT NULL, dificultad smallint CHECK (dificultad BETWEEN 1 AND 4),
   enunciado text NOT NULL, explicacion text, referencia text, pistas jsonb NOT NULL DEFAULT '[]' CHECK (jsonb_array_length(pistas)=3),
-  media jsonb DEFAULT '[]', version int NOT NULL DEFAULT 1, estado text NOT NULL DEFAULT 'publicada', actualizado timestamptz DEFAULT now());
+  media jsonb DEFAULT '[]', version int NOT NULL DEFAULT 1, estado text NOT NULL DEFAULT 'publicada', actualizado timestamptz DEFAULT now(),
+  -- Preguntas especiales facilitadas por el docente (fuente tipo 'especial', icono ★); NULL en el resto
+  especial boolean NOT NULL DEFAULT false, origen text, num_origen text, nivel_docente text, coincidencia text CHECK (coincidencia IN ('coincide','matiz','no')), coincidencia_texto text,
+  resp_grupo1 text, resp_original text, comprobacion text, donde text, nota_sesion text);
 CREATE TABLE opciones   (id int PRIMARY KEY, pregunta_id int REFERENCES preguntas ON DELETE CASCADE, orden int, texto text NOT NULL, es_correcta boolean NOT NULL, UNIQUE (pregunta_id, orden));
 CREATE TABLE pares_relacion (id int PRIMARY KEY, pregunta_id int REFERENCES preguntas ON DELETE CASCADE, orden int, izquierda text, derecha text NOT NULL); -- izquierda NULL = opción sobrante
 CREATE TABLE soluciones_codigo (pregunta_id int PRIMARY KEY REFERENCES preguntas ON DELETE CASCADE, dp text, ds jsonb DEFAULT '[]', alt_dp jsonb, alt_ds jsonb, patron_dp text);

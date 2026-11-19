@@ -2,5 +2,10 @@
 {"id": "UF1", "titulo": "Introducción a la codificación sanitaria y la clasificación internacional de enfermedades (CIE-10-ES)", "archivo": "UF1_Introduccion.pdf", "paginas": 52},
 {"id": "UF2", "titulo": "Codificación de diagnósticos de enfermedades infecciosas y parasitarias", "archivo": "UF2_Infecciosas.pdf", "paginas": 38},
 {"id": "UF3", "titulo": "Codificación de diagnósticos y procedimientos de neoplasias", "archivo": "UF3_Neoplasias.pdf", "paginas": 45},
-{"id": "UF4", "titulo": "Codificación de diagnósticos de enfermedades sistémicas, trastornos mentales y otras patologías", "archivo": "UF4_Otras_patologias.pdf", "paginas": 50}
+{"id": "UF4", "titulo": "Codificación de diagnósticos de enfermedades sistémicas, trastornos mentales y otras patologías", "archivo": "UF4_Otras_patologias.pdf", "paginas": 50},
+{"id": "UF5", "titulo": "Codificación de diagnósticos y procedimientos de enfermedades del aparato circulatorio", "archivo": "UAX225_UF5_01PDF_Circulatorio.pdf", "paginas": 53},
+{"id": "UF6", "titulo": "Codificación de diagnósticos de enfermedades del aparato respiratorio", "archivo": "UAX225_UF6_01PDF_Respiratorio.pdf", "paginas": 55},
+{"id": "UF7", "titulo": "Codificación de diagnósticos y procedimientos de enfermedades del aparato digestivo", "archivo": "UAX225_UF7_01PDF_Digestivo.pdf", "paginas": 55},
+{"id": "UF8", "titulo": "Codificación de diagnósticos del embarazo, el parto y el puerperio", "archivo": "UAX225_UF8_01PDF_Embarazo.pdf", "paginas": 43},
+{"id": "GUIA", "titulo": "Guía básica de codificación", "archivo": "Guía básica codificación.pdf", "paginas": 4}
 ]

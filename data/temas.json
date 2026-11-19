@@ -50,5 +50,12 @@
 {"id": 49, "fuente_id": "BC", "nombre": "Conceptos · S4 · Enfermedades de la tiroides"},
 {"id": 50, "fuente_id": "BC", "nombre": "Conceptos · S4 · Trastornos mentales y por consumo de sustancias"},
 {"id": 51, "fuente_id": "BC", "nombre": "Conceptos · S4 · Aparato genitourinario y mama"},
-{"id": 52, "fuente_id": "BC", "nombre": "Conceptos · Preguntas con guía de consulta"}
+{"id": 52, "fuente_id": "BC", "nombre": "Conceptos · Preguntas con guía de consulta"},
+{"id": 53, "fuente_id": "ED", "nombre": "Tema 1. Generalidades y normativa"},
+{"id": 54, "fuente_id": "ED", "nombre": "Tema 2. Neoplasias, diabetes e infecciosas"},
+{"id": 55, "fuente_id": "ED", "nombre": "Tema 3. Codificación de neoplasias"},
+{"id": 56, "fuente_id": "ED", "nombre": "Tema 4. Enfermedades sistémicas y trastornos mentales"},
+{"id": 57, "fuente_id": "ED", "nombre": "Tema 5. Aparato circulatorio"},
+{"id": 58, "fuente_id": "ED", "nombre": "Tema 6. Aparato respiratorio"},
+{"id": 59, "fuente_id": "ED", "nombre": "Tema 7. Aparato digestivo"}
 ]

@@ -39,9 +39,15 @@ Selección única, múltiple, verdadero/falso, codificación (DP/DS/morfología)
 (pulsa un término y su pareja; puntuación parcial; cada enlace erróneo resta ⅓ del valor de un par).
 
 ## Contenido actual
-499 preguntas en siete clasificaciones: Sesiones 1, 3 y 4, Unidades 1-3 y el nuevo **Banco de preguntas de Conceptos** (191 preguntas tipo test
+604 preguntas en ocho clasificaciones: Sesiones 1, 3 y 4, Unidades 1-3, las 105 **Preguntas especiales del docente ★** (ver más abajo) y el **Banco de preguntas de Conceptos** (191 preguntas tipo test
 organizadas por sesión, tema y nivel: 187 del banco reorganizado + 4 con «Dónde consultarlo»). Cada pregunta lleva 3 pistas y cita el manual (UF1-UF4)
 con apartado y página. Las referencias se localizaron por similitud de texto con el PDF: conviene revisarlas.
+
+## Preguntas especiales del docente ★
+Clasificación `ED` (`fuentes.tipo = 'especial'`, siempre con estrella ★ en etiquetas, filtros y cabeceras): 105 preguntas de test del Grupo_1 en 7 temas (Tema 1 Generalidades y normativa … Tema 7 Aparato digestivo), cargadas desde `Grupo1_preguntas_coincidencia.docx`.
+Cada una conserva **todos** los campos del documento: enunciado, 4 opciones, 3 pistas, respuesta correcta (Grupo_1, examen original y comprobación), si coincide (`coincide`/`matiz`/`no`: 85 / 13 / 7), dónde se consulta (manual, apartado y página, más la nota de verificación), nota de sesión y nivel de dificultad (Fácil=1, Media=2, Alta=3).
+Campos propios de `preguntas`: `especial`, `origen`, `num_origen`, `nivel_docente`, `coincidencia`, `coincidencia_texto`, `resp_grupo1`, `resp_original`, `comprobacion`, `donde`, `nota_sesion`. Tras responder (y en «Banco con soluciones» y en la corrección detallada) se muestra la caja «Pregunta especial del docente» con esos datos.
+Se añadieron los manuales UF5-UF8 y la Guía básica a `manuales`. Las 7 preguntas que **no coinciden** (T1·3, T3·6, T4·5, T4·8, T5·7, T5·9, T6·15) llevan la señal roja «No coincide» porque la comprobación duda de la clave: conviene confirmarlas en eCIEMaps.
 
 ## Cómo añadir preguntas nuevas
 Cada pregunta necesita: enunciado, 4 opciones, opción correcta, 3 pistas, nivel (Fácil, Medio, Difícil o Supremo), explicación y dónde consultarla
